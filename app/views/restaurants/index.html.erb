@@ -1,0 +1,13 @@
+<h2>All Restaurants</h2>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li><%= link_to restaurant.name, restaurant_path(restaurant) %> </li>
+  <% end %>
+</ul>
+
+<!--
+name: Faker::Restaurant.name,
+address: Faker::Address.street_address,
+category: Restaurant::CATEGORIES.sample,
+phone_number: Faker::Company.duns_number
+-->

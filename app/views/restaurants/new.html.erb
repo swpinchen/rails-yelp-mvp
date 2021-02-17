@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Add a restaurant</h1>
+  <%# <form action="/restaurants" method="post">
+    <input type="text" name="parmater_name">
+  </form> %>
+  <% if @restaurant.errors.any? %>
+    <% @restaurant.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  <% end %>
+
+  <%= form_for(@restaurant) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div>
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+
+<!--
+name: Faker::Restaurant.name,
+address: Faker::Address.street_address,
+category: Restaurant::CATEGORIES.sample,
+phone_number: Faker::Company.duns_number
+-->

@@ -1,0 +1,36 @@
+<!-- app/views/restaurants/show.html.erb -->
+<h2><%= @restaurant.name %></h2>
+<h3><%= @restaurant.address %></h3>
+<h3><%= @restaurant.phone_number %></h3>
+<p>Category: <%= @restaurant.category %></p>
+<p>Updated: <%= @restaurant.updated_at %></p>
+
+<div>
+  <%= link_to "Back to list", restaurants_path %>
+</div>
+
+<!-- app/views/restaurants/show.html.erb -->
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <div>
+        Content:
+        <%= review.content %>
+      </div>
+      <div>
+        Rating:
+        <%= review.rating %></li>
+      <div>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
+</div>
+
+<!--
+name: Faker::Restaurant.name,
+address: Faker::Address.street_address,
+category: Restaurant::CATEGORIES.sample,
+phone_number: Faker::Company.duns_number
+-->
